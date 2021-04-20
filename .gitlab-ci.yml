@@ -1,0 +1,4 @@
+include:
+  - local: '/dhtrackproject/.gitlab-ci.yml'
+
+  
