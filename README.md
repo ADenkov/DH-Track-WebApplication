@@ -4,6 +4,7 @@ For further information about the website usage, please refer to the Documentati
 
 The back-end is located at root/dhtrackproject.
 The front-end is located at root/frontend.
+To run the project you need JDK 8 or later. Running npm install is required to run the project.
 For the back-end framework I've used Spring Boot. It is accessible via http://localhost:8080.
 For the front-end framework I've used ReactJS, accessible at http://localhost:3000.
 For the database used in the project I am using a local DB. I've worked on XAMPP and recently switched to MariaDB, which is Docker's server for hosting a database. It was required in order to run docker for the back-end.
