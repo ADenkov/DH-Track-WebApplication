@@ -1,0 +1,40 @@
+stages:
+  - build
+  - test
+  - sonarqube
+  - deploy
+
+
+build:
+  stage: build
+  script:
+    - cd ./dhtrackproject
+    - ./gradlew assemble
+ 
+test:
+  stage: test
+  dependencies:
+    - build
+  script:
+    - cd ./dhtrackproject
+    - ./gradlew test
+
+sonarqube:
+ stage: sonarqube
+ dependencies:
+   - test
+ script:
+   - cd ./dhtrackproject
+   - ./gradlew sonarqube
+
+deploy:
+ stage: deploy
+ dependencies:
+   - sonarqube
+ script:
+   - docker build -t dh-track-project .
+   - docker run -it -p 3000:80 --rm --name dockerizefrontend dh-track-project
+
+after_script:
+  - echo "End CI"
+
